@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "postversion": "react-native-version --never-amend"
+    "postversion": "react-native-version"
   },
   "dependencies": {
     "react": "17.0.2",
