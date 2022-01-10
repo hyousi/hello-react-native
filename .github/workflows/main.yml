@@ -17,7 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
       - run: git config --global user.name 'bot'
       - run: git config --global user.email 't0iiz@bot.dev'
       - run: npm version patch
