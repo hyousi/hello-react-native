@@ -12,9 +12,13 @@ on:
         default: 'The Octoverse'
 
 jobs:
-  say_hello:
+  version:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Hello ${{ github.event.inputs.name }}!"
-          echo "- in ${{ github.event.inputs.home }}!"
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: git config --global user.name 'bot'
+      - run: git config --global user.email 't0iiz@bot.dev'
+      - run: npm version patch
+      - run: git push
